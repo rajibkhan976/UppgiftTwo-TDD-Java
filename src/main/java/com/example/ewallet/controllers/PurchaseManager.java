@@ -36,7 +36,13 @@ public class PurchaseManager implements IPurchaseManager {
 
             if (purchases != null) {
                 for (Purchase purchase: purchases) {
-                    sumOfMonth += purchase.getAmount();
+                    if (purchase.getStartdate().getMonthValue() == start_date.getMonthValue() &&
+                            purchase.getStartdate().getDayOfMonth() >= start_date.getDayOfMonth() &&
+                            purchase.getEnddate().getMonthValue() == end_date.getMonthValue() &&
+                            purchase.getEnddate().getDayOfMonth() <= end_date.getDayOfMonth()
+                    ) {
+                        sumOfMonth += purchase.getAmount();
+                    }
                 }
             }
         }
@@ -50,7 +56,7 @@ public class PurchaseManager implements IPurchaseManager {
         int[] monthArr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
         LocalDate start_date;
         LocalDate end_date;
-        float sumOfMonth = 0;
+
         if (year > 2000) {
             for (int i = 0; i < monthArr.length; i++) {
 
@@ -62,22 +68,22 @@ public class PurchaseManager implements IPurchaseManager {
                     end_date = LocalDate.of(year, monthArr[i], 30);
                 }
 
-                System.out.println(start_date.getMonth());
-                System.out.println(end_date.getMonth());
-
                 List<Purchase> purchases = store.getPurchases(start_date, end_date);
 
-                System.out.println(purchases);
+                float sumOfMonth = 0;
 
                 if (purchases != null) {
                     for (Purchase purchase: purchases) {
-                        System.out.println(purchase.getAmount());
-                        sumOfMonth += purchase.getAmount();
+                        if (purchase.getStartdate().getMonthValue() == start_date.getMonthValue() &&
+                                purchase.getStartdate().getDayOfMonth() >= start_date.getDayOfMonth() &&
+                                purchase.getEnddate().getMonthValue() == end_date.getMonthValue() &&
+                                purchase.getEnddate().getDayOfMonth() <= end_date.getDayOfMonth()
+                        ) {
+                            sumOfMonth += purchase.getAmount();
+                        }
                     }
-                    System.out.println(sumOfMonth / 30);
                     monthlyAverageOfYear[i] = sumOfMonth / 30;
                 } else {
-                    //System.out.println(sumOfMonth);
                     monthlyAverageOfYear[i] = sumOfMonth;
                 }
             }

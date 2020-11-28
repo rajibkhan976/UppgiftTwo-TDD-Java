@@ -21,12 +21,6 @@ public class PurchaseStoreStub extends PurchaseStore {
 
     @Override
     public List<Purchase> getPurchases(LocalDate startdate, LocalDate enddate) {
-
-        entries = entries.stream()
-                .filter(entry -> entry.getStartdate().getMonth() == startdate.getMonth() &&
-                        entry.getEnddate().getMonth() == enddate.getMonth())
-                .collect(Collectors.toList());
-
         return entries;
     }
 }
