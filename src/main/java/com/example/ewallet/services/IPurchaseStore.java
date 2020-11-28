@@ -3,26 +3,26 @@ package com.example.ewallet.services;
 import com.example.ewallet.entities.Category;
 import com.example.ewallet.entities.Purchase;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IPurchaseStore {
 
     /**
      * Get purchases from startDate to endDate.
-     * @param start_date
-     * @param end_date
+     * @param startdate
+     * @param enddate
      * @return Purchases.
      */
-    List<Purchase> getPurchases(Date start_date, Date end_date);
+    List<Purchase> getPurchases(LocalDate startdate, LocalDate enddate);
     /**
      * Get purchases from startDate to endDate for category catId.
-     * @param start_date
-     * @param end_date
-     * @param category_id
+     * @param startdate
+     * @param enddate
+     * @param categoryid
      * @return Purchases.
      */
-    List<Purchase> getPurchasesByCategory(Date start_date, Date end_date, Integer category_id);
+    List<Purchase> getPurchasesByCategory(LocalDate startdate, LocalDate enddate, Integer categoryid);
     /**
      * Get all categories.
      * @return Categories.

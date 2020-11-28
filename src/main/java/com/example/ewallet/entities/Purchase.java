@@ -2,7 +2,6 @@ package com.example.ewallet.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "purchase")
@@ -11,21 +10,21 @@ public class Purchase {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private Date start_date;
-    private Date end_date;
+    private LocalDate startdate;
+    private LocalDate enddate;
     private double amount;
     private String comment;
-    private Integer category_id;
+    private Integer categoryid;
 
     public Purchase () {}
 
-    public Purchase (Integer id, Date start_date, Date end_date, double amount, String comment, Integer category_id) {
+    public Purchase (Integer id, LocalDate startdate, LocalDate enddate, double amount, String comment, Integer categoryid) {
         this.id = id;
-        this.start_date = start_date;
-        this.end_date = end_date;
+        this.startdate = startdate;
+        this.enddate = enddate;
         this.amount = amount;
         this.comment = comment;
-        this.category_id = category_id;
+        this.categoryid = categoryid;
     }
 
     public Integer getId() {
@@ -36,20 +35,20 @@ public class Purchase {
         this.id = id;
     }
 
-    public Date getStart_date() {
-        return this.start_date;
+    public LocalDate getStartdate() {
+        return this.startdate;
     }
 
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
+    public void setStartdate(LocalDate startdate) {
+        this.startdate = startdate;
     }
 
-    public Date getEnd_date() {
-        return this.end_date;
+    public LocalDate getEnddate() {
+        return this.enddate;
     }
 
-    public void setEnd_date(Date end_date) {
-        this.end_date = end_date;
+    public void setEnddate(LocalDate enddate) {
+        this.enddate = enddate;
     }
 
     public double getAmount() {
@@ -68,11 +67,11 @@ public class Purchase {
         this.comment = comment;
     }
 
-    public Integer getCategory_id() {
-        return this.category_id;
+    public Integer getCategoryid() {
+        return this.categoryid;
     }
 
-    public void setCategory_id(Integer category_id) {
-        this.category_id = category_id;
+    public void setCategoryid(Integer category_id) {
+        this.categoryid = categoryid;
     }
 }

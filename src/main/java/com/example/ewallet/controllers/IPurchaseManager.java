@@ -12,11 +12,11 @@ public interface IPurchaseManager {
      * @param year
      * @return Array of averages per month.
      */
-    float monthlyAverage(int year);
+    float[] monthlyAverage(int year);
     /**
      * For a specified year, calculate each category's average purchases.
      * @param year
      * @return Array of averages per category.
      */
-    float yearlyAveragePerCategory(int year);
+    /**float[] yearlyAveragePerCategory(int year);*/
 }
