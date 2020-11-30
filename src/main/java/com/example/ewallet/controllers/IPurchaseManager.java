@@ -18,5 +18,5 @@ public interface IPurchaseManager {
      * @param year
      * @return Array of averages per category.
      */
-    /**float[] yearlyAveragePerCategory(int year);*/
+    float[] yearlyAveragePerCategory(int year);
 }
